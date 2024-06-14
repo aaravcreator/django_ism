@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        .calculator {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .operations {
+            margin: 10px 0;
+        }
+        .operations label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .operations input {
+            margin-right: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <form action="" >
+            <div class="form-group">
+                <label for="number1">Number 1:</label>
+                <input type="number" id="number1" name="number1" required>
+            </div>
+            <div class="form-group">
+                <label for="number2">Number 2:</label>
+                <input type="number" id="number2" name="number2" required>
+            </div>
+            <div class="form-group operations">
+                <label>Select Operation:</label>
+                <label><input type="radio" name="operation" value="add"  required> Addition (+)</label>
+                <label><input type="radio" name="operation" value="subtract"> Subtraction (-)</label>
+                <label><input type="radio" name="operation" value="multiply"> Multiplication (×)</label>
+                <label><input type="radio" name="operation" value="divide"> Division (÷)</label>
+            </div>
+
+            <div>Result : {{result}}</div>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+</body>
+</html>

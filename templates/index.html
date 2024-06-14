@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    {% if age > 20 %}
+        <h1>HE IS OLD</h1>
+    {% endif %}
+
+    {{age}}
+    {{hobbies}}
+
+    {% for hobby in hobbies %}
+    <p>{{hobby}}</p>
+    <br>
+    {% endfor %}
+
+
+        <h1>{{name}}</h1>
+
+        <p>This is a paragraph</p>
+
+        <ul>
+            {% for hobby in hobbies %}
+
+
+            <li style="padding:10px; {% if hobby == "SINGING" %} background-color: pink; {%else%} background-color: green; {% endif %} color:white; border-radius: 10px; margin:10px;">{{hobby}}</li>
+
+
+            {% endfor %}
+            <li>APPLE</li>
+            <li>BANANA</li>
+            <li>ORANGE</li>
+        </ul>
+
+
+</body>
+</html>

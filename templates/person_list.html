@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Data Cards</title>
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"> -->
+</head>
+<body class="bg-gray-100 p-6">
+
+    <form >
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" >
+        <label for="age">Age</label>
+        <input id="age" type="number" name="age" >
+
+        <label for="gender">Gender</label>
+        <input id="gender" type="text" name="gender" >
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+
+
+    {{person_list}}
+
+
+   
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            {% for person in person_list %}
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">{{person.name}}</h2>
+                <p class="text-gray-700">Age: {{person.age}}</p>
+                <p class="text-gray-700">Gender: {{person.gender}}</p>
+            </div>
+            {% endfor %}
+            <!-- Card 1 -->
+
+                {% comment %}
+
+
+
+             
+            
+            <!-- Card 2 -->
+         <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Jane Smith</h2>
+                <p class="text-gray-700">Age: 32</p>
+                <p class="text-gray-700">Gender: Female</p>
+            </div> 
+            <!-- Card 3 -->
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Alex Johnson</h2>
+                <p class="text-gray-700">Age: 24</p>
+                <p class="text-gray-700">Gender: Non-binary</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Emily Davis</h2>
+                <p class="text-gray-700">Age: 29</p>
+                <p class="text-gray-700">Gender: Female</p>
+            </div>
+            <!-- Add more cards as needed -->
+
+            {% endcomment %}
+        </div>
+    </div>
+</body>
+</html>
