@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="text-danger">This is home page</h1>
+      <h1 class="text-success">Todolists</h1>
+      {% if messages %}
+      <ul class="list-group">
+        {% for message in messages %}
+        {% if message.tags == "error" %}
+        <li class="list-group-item list-group-item-danger">
+          <p>{{ message }}</p>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <form action="" method="post" class="my-4">
+        {% csrf_token %}
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Enter your todo here" name="todolist">
+        </div>
+        {% if error %}
+        <div class="alert alert-danger">
+          {% if error.title %}
+          {{ error.title }}
+          {% endif %}
+        </div>
+        {% endif %}
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Enter the number of days" name="days">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Todo</button>
+      </form>
+      <form action="" method="GET" class="my-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" name="search">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+      </form>
+      <ul class="list-group">
+        {% for todolist in todolists %}
+        <li class="list-group-item">
+          {% if todolist.is_completed %}
+          <a href="/details/{{todolist.pk}}" class="text-decoration-line-through">{{todolist.title}}</a>
+          {% else %}
+          <a href="/details/{{todolist.pk}}">{{todolist.title}}</a>
+          {% endif %}
+          <a href="update/{{todolist.pk}}" class="text-info float-end">update</a>
+
+          <a href="delete/{{todolist.pk}}" class="text-danger float-end">delete</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>  
+{%endblock content%}
+
+  

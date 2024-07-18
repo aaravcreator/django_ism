@@ -57,10 +57,11 @@
 <body>
     <div class="calculator">
         <h2>Simple Calculator</h2>
-        <form action="" >
+        <form action="" method="post">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="number1">Number 1:</label>
-                <input type="number" id="number1" name="number1" required>
+                <input type="number" id="number1" name="number1" value="{% if num1 %}{{num1}}{% endif %}" required>
             </div>
             <div class="form-group">
                 <label for="number2">Number 2:</label>
